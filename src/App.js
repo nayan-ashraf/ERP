@@ -1,22 +1,17 @@
 import './App.css';
-
+import Application from './components/app.component';
+import LogIn from './components/login.component';
 function App() {
+  // const token ='';
+  const token = localStorage.getItem('authenticateToken');
+  console.log(token)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        (token)? <Application />: <LogIn />   
+      }
+      
+  
     </div>
   );
 }

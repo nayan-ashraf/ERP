@@ -1,34 +1,39 @@
 import React from "react";
 import Home from "./home.component";
-
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import AddCompany from "./admin/addCompany.component";
-import Menu from "./menu.component";
 import LeftSidebar from "./leftSidebar.component";
 import Navbar from "./navbar.component";
+import "../css/style.css";
+import "../style.js";
+import LogOut from "./LogOut.component";
+import AllCompany from "./admin/allCompany.component";
 
-class App extends React.Component {
+class Application extends React.Component {
   render() {
     return (
-      <div>
-           <div className="row">
-        <Navbar />
-          <div className="col-md-2" style={{'padding': '0', 'margin': '0'}}>
-            <LeftSidebar />
-          </div>
-          <div className="col-md-10" style={{'padding': '0', 'margin': '0'}}>
-          <Switch>
+      <div className="wrapper">
+        
+        <LeftSidebar />
+        <div className="main">
+          <Navbar />
+          <main className="content">
+				<div className="container-fluid p-0">
+        <Switch>
          
-         <Route exact path="/dashboard" component={Menu} />
+         
+         <Route exact path="/dashboard" component={Home} />
          <Route exact path="/add-company" component={AddCompany} />
-         <Route exact path="/" component={Menu} />
+         <Route exact path="/all-company" component={AllCompany} />
+         <Route exact path="/log-out" component={LogOut} />
+         <Route exact path="/" component={Home} />
        </Switch>  
-            
-          </div>
         </div>
-     
-      </div>
+        </main></div>
+       
+            </div>
+        
     );
   }
 }
-export default App;
+export default Application;
