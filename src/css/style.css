@@ -12334,7 +12334,12 @@ span.flatpickr-weekday {
 }
 /*# sourceMappingURL=app.css.map*/
 /* style for login form  */
-
+#root{
+  background: url('./compute-ea4c57a4.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .login-form {
   height: 400px;
   width:400px;
@@ -12343,9 +12348,13 @@ span.flatpickr-weekday {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background-color: cadetblue;
+  background-color: #222E3C;
   padding: 50px;
-  border:2px solid black;
+  border:2px solid #87C8FE ;
   border-radius: 10px;
 
+}
+
+.font-family-hand {
+  font-size: 14px;
 }

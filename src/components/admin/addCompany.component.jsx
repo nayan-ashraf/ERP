@@ -6,7 +6,9 @@ import { RiEditBoxLine } from "react-icons/ri";
 import { addCompany } from '../service/admin-service';
 
 
-const AddCompany = () => (
+
+const AddCompany = (props) => (
+
   <Formik
   initialValues = {{
     admin_id: getCurrentUser().id,
@@ -48,7 +50,8 @@ const AddCompany = () => (
   onSubmit = {async (values) => {
     try {
       await addCompany(values);
-     } catch (e) {
+props.history.push('/dashboard')
+    } catch (e) {
        console.log(e)
      }
   }}
@@ -168,10 +171,24 @@ const AddCompany = () => (
                 id="is_active"
               >
                 <option>Select Status</option>
-                <option value="active" selected>Active</option>
-                <option value="inactive">Inactive</option>
+                <option value="1" >Active</option>
+                <option value="2">Inactive</option>
               </Field>
               <ErrorMessage name="is_active" />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="country_id">Country</label>
+              <Field
+                className="form-control"
+                name="country_id"
+                as="select"
+                id="country_id"
+              >
+                <option>Select Country</option>
+                <option value="1" >Bangladesh</option>
+                <option value="2">Jordan</option>
+              </Field>
+              <ErrorMessage name="country_id" />
             </div>
           </div>
 

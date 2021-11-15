@@ -1,38 +1,45 @@
 import React from "react";
 import { AiTwotoneHome } from "react-icons/ai";
 import { RiBuilding4Fill } from "react-icons/ri";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class LeftSidebar extends React.Component {
   render() {
     return (
-      
-        
       <nav id="sidebar" className="sidebar js-sidebar">
-			<div className="sidebar-content js-simplebar">
-				<a className="sidebar-brand" href="index.html">
-          <span className="align-middle">AdminKit</span>
-        </a>
+        <div className="sidebar-content js-simplebar">
+          <Link className="sidebar-brand" to="/">
+            <span
+              className="align-middle"
+              style={{ color: "gray", fontSize: "24px" }}
+            >
+              <span style={{ color: "red" }}>F</span>ounder
+              <span style={{ color: "red" }}>S</span>uite
+            </span>
+          </Link>
 
-				<ul className="sidebar-nav">
-								<li className="sidebar-item active">
-						<Link className="sidebar-link" to="/">
-              <AiTwotoneHome /> <span className="align-middle">Dashboard</span>
-            </Link>
-					</li>
+          <ul className="sidebar-nav">
+            <li className="sidebar-item active">
+              <Link className="sidebar-link" to="/">
+                <AiTwotoneHome />{" "}
+                <span className="align-middle">Dashboard</span>
+              </Link>
+            </li>
 
-					<li className="sidebar-item">
-						<Link className="sidebar-link" to="/add-company">
-              <RiBuilding4Fill /> <span className="align-middle" >Add Company</span>
-            </Link>
-					</li>
+            <li className="sidebar-item">
+              <Link className="sidebar-link" to="/add-company">
+                <RiBuilding4Fill />{" "}
+                <span className="align-middle">Add Company</span>
+              </Link>
+            </li>
 
-					<li className="sidebar-item">
-						<Link className="sidebar-link" to="/all-company">
-            <RiBuilding4Fill /> <span className="align-middle" >View Company</span>
-            </Link>
-					</li>
-{/* 
+            <li className="sidebar-item">
+              <Link className="sidebar-link" to="/all-company">
+                <RiBuilding4Fill />{" "}
+                <span className="align-middle">View Company</span>
+              </Link>
+            </li>
+            {/* 
 					<li className="sidebar-item">
 						<a class="sidebar-link" href="pages-sign-up.html">
               <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
@@ -94,12 +101,9 @@ class LeftSidebar extends React.Component {
               <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
             </a>
 					</li> */}
-				</ul>
-
-		
-			</div>
-		</nav>
-    
+          </ul>
+        </div>
+      </nav>
     );
   }
 }

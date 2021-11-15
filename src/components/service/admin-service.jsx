@@ -8,6 +8,7 @@ export async function addCompany(company) {
    const response = await http.post(
      `${apiUrl}/admin/add-company`, company,  { headers: { authorization: "Bearer "+ token}}
    );
+  
    return Promise.resolve(response);
  }
  catch(error) {
@@ -16,7 +17,27 @@ export async function addCompany(company) {
  }
 }
 
-export function allCompanies() {
-  http.get(`${apiUrl}/admin/all-company-info`);
+export async function allCompanies(admin_id) {
+  try {
+    const { data } = await http.post(`${apiUrl}/admin/all-company-info`,
+    admin_id,  
+    { headers: { authorization: "Bearer "+ token}});
+    return Promise.resolve(data.companies);
+  }
+catch(error) {
+  return Promise.reject(error);
+}
+}
+
+export async function oneCompanyInfo(data) {
+  try {
+    const response = await http.post(`${apiUrl}/admin/one-company-info`,
+    data,  
+    { headers: { authorization: "Bearer "+ token}});
+    return Promise.resolve(response.data.user);
+  }
+catch(error) {
+  return Promise.reject(error);
+}
 }
 

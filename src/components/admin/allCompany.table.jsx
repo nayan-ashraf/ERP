@@ -1,19 +1,57 @@
-import React from 'react';
-import Table from './common/table/table.component'
+import React from "react";
+import Table from "../common/table/table.component";
+import { TiEdit } from "react-icons/ti";
+import { BiShow } from "react-icons/bi";
 
-const AllCompanyTable = ({ movies, handleRating, onSort, sortedColumn }) => {
+const AllCompanyTable = ({ companies, oneCompanyInfo }) => {
   const columns = [
-    {  path: 'posterurl', label: '', content: movie => <img style={{width:'40px' , height:'50px'}} src={movie.posterurl} alt='img' />},
-    {  path: 'title', label: 'Title', content: movie => movie.title },
-    {  path: 'imdbRating', label: 'Rating', content: movie => movie.imdbRating },
-    {  path: 'isRated', label: 'Your Rating', content: (movie, id) => <i className={( movie.isRated === true ) ? "fas fa-star":"far fa-star"} onClick={()=> handleRating(id) }></i>},
-  ]
-    return ( 
+    {
+      path: "name_en",
+      label: "Company Name",
+      content: (company) => company.name_en,
+    },
+    { path: "email", label: "Email", content: (company) => company.user.email },
+    {
+      path: "phone_no",
+      label: "Phone Number",
+      content: (company) => company.phone_no,
+    },
+    {
+      path: "status",
+      label: "Status",
+      content: (company) =>
+        company.user.online_status === "offline" ? (
+          <span class="badge bg-info text-dark">Offline</span>
+        ) : (
+          <span class="badge bg-success">Online</span>
+        ),
+    },
+    {
+      path: "",
+      label: "Action",
+      content: (company) => (
         <>
-          <Table items={ movies } columns={ columns } onSort={ onSort } sortedColumn={ sortedColumn } />
+          <BiShow
+            style={{
+              fontSize: "18px",
+              marginRight: "10px",
+              color: "green",
+              cursor: "pointer",
+            }}
+            title="Show"
+            onClick={() => oneCompanyInfo(company.user_id, company.user.username)}
+          />
+          <TiEdit style={{ fontSize: "18px" }}  />
         </>
-          
-     );
-}
- 
+      ),
+    },
+  ];
+
+  return (
+    <>
+      <Table items={companies} columns={columns} />
+    </>
+  );
+};
+
 export default AllCompanyTable;

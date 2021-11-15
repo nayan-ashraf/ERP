@@ -3,10 +3,10 @@ import TableBody from './table-body.component';
 import TableHeader from './table-header.component';
 
 
-const Table = ({ columns, items, onSort, sortedColumn }) => {
+const Table = ({ columns, items }) => {
     return ( 
         <table className="table table-striped" id="table" >
-            <TableHeader columns={columns}  onSort={ onSort } sortedColumn={ sortedColumn }/>
+            <TableHeader columns={columns}  />
             <TableBody columns={ columns } items= {items} />
           </table>
      );
